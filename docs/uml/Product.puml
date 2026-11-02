@@ -1,0 +1,31 @@
+@startuml CustomerAddress
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - id : int
+  - name : String
+  - email : String
+  - address : Address
+  + getId() : int
+  + getName() : String
+  + setName(name : String) : void
+  + getEmail() : String
+  + setEmail(email : String) : void
+  + getAddress() : Address
+  + setAddress(address : Address) : void
+}
+
+class Address {
+  - street : String
+  - city : String
+  - postcode : String
+  + getStreet() : String
+  + setStreet(street : String) : void
+  + getCity() : String
+  + setCity(city : String) : void
+  + getPostcode() : String
+  + setPostcode(postcode : String) : void
+}
+
+Customer --> Address
+@enduml
