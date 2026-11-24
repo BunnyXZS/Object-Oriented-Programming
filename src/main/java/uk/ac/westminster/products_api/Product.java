@@ -13,4 +13,7 @@ public class Product {
 //    public String getName() { return name; }
     public String getName() { return name; }
     public double getPrice() { return price; }
+
+    public void setId(Long aLong) {
+    }
 }
