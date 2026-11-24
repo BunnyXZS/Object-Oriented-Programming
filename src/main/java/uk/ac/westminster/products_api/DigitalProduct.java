@@ -1,5 +1,21 @@
 package uk.ac.westminster.products_api;
-public class DigitalProduct extends Product {
+
+import java.io.Serializable;
+
+public class DigitalProduct extends Product implements Discountable {
+    private double discountedPrice;
+    @Override
+    public void applyDiscount(double rate) {
+        // nothing is shipped, so the full rate applies
+        this.discountedPrice = getPrice() * (1 - rate);
+    }
+
+    @Override
+    public double getDiscountedPrice() {
+        return discountedPrice;
+    }
+
+
     private String downloadUrl;
     private double fileSizeMB;
     // no-arg constructor — Jackson needs this to build
@@ -17,5 +33,12 @@ public class DigitalProduct extends Product {
     public double getFileSizeMB() {
         return fileSizeMB;
     }
+    @Override
+    public String getSummary() {
+        return "Digital: " + getName()
+                + " | Download: " + downloadUrl;
+    }
+
+
 }
 

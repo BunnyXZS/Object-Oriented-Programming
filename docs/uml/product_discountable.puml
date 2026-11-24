@@ -1,0 +1,32 @@
+@startuml
+abstract class Product {
+- id : Long
+- name : String
+- price : double
++ {abstract} getSummary() : String
++ getName() : String
++ getPrice() : double
+}
+interface Discountable {
++ applyDiscount(rate : double) : void
++ getDiscountedPrice() : double
+}
+class DigitalProduct {
+- downloadUrl : String
+- fileSizeMB : double
++ getSummary() : String
++ applyDiscount(rate : double) : void
+}
+class PhysicalProduct {
+- weightKg : double
+- dimensions : String
++ getSummary() : String
++ applyDiscount(rate : double) : void
+}
+' <|-- generalisation (extends): SOLID line
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
+' <|.. realisation (implements): DASHED line
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
+@enduml
