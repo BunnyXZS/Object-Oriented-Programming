@@ -14,6 +14,7 @@ public class Product {
     public String getName() { return name; }
     public double getPrice() { return price; }
 
-    public void setId(Long aLong) {
-    }
+    public void setId(Long id) { this.id = id; }
+    public void setName(String n) { this.name = n; }
+    public void setPrice(double p) { this.price = p; }
 }
